@@ -1,0 +1,9 @@
+cff-version: 1.2.0
+message: "If you use this repository, please cite the software and the accompanying paper."
+title: "MADiff-T"
+type: software
+authors:
+  - family-names: "Project"
+    given-names: "Authors"
+version: "1.0.0"
+date-released: 2026-04-03

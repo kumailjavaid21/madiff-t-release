@@ -1,0 +1,96 @@
+datasets:
+  - breast_cancer
+  - adult_income
+  - pima
+  - heart
+  - credit
+
+methods:
+  - gaussian_copula
+  - tvae
+  - ctgan
+  - tabddpm_single
+  - madifft
+  - privbayes
+  - tabsyn
+  - stasy
+
+seeds: [0, 1, 2, 3, 4]
+
+tstr:
+  classifiers:
+    - logistic_regression
+    - xgb
+
+privacy:
+  dcr_q: 0.01
+  alpha_mixdist: 0.5
+
+strong_audits:
+  enable_domias: true
+  enable_tapas: false
+  training_epochs: 50
+  max_synthetic: 200
+  methods: [gaussian_copula]
+
+split:
+  test_size: 0.2
+  val_size: 0.1
+
+paths:
+  raw_data_root: data/raw
+  label_columns:
+    breast_cancer: target
+    adult_income: class
+    pima: Outcome
+    heart: class
+    credit: class
+
+external_outputs:
+  tabsyn_root: paper_revC/external/tabsyn/outputs
+  stasy_root: paper_revC/external/stasy/outputs
+  file_names: [synth.csv, samples.csv, synthetic.csv]
+
+INCLUDE_EXTERNAL_BASELINES: false
+DISABLE_PRIVBAYES: false
+privbayes_eps_grid: [0.1, 0.5, 1, 2, 5, 10]
+
+method_params:
+  tabddpm_single:
+    params:
+      hidden_dim: 256
+      num_layers: 4
+      time_embed_dim: 128
+      timesteps: 300
+      lr: 0.001
+      batch_size: 64
+      epochs: 60
+      include_label: true
+    n_samples: null
+  madifft:
+    params:
+      hidden_dim: 256
+      num_layers: 4
+      time_embed_dim: 128
+      timesteps: 400
+      lr: 0.001
+      batch_size: 64
+      epochs: 100
+      include_label: true
+    n_samples: null
+    evolution:
+      population: 4
+      generations: 3
+      steps_per_gen: 5
+      elite_k: 2
+      mutation_rate: 0.4
+      w_utility: 1.0
+      w_privacy: 0.5
+      w_fidelity: 0.5
+      privacy_q: 0.01
+      privacy_alpha: 0.5
+    full_epochs: 60
+  privbayes:
+    epsilon: 1.0
+    model_kwargs: {}
+    n_bins: 20

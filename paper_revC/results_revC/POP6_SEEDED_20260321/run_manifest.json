@@ -1,0 +1,39 @@
+{
+  "run_tag": "POP6_SEEDED_20260321",
+  "datasets": [
+    "breast_cancer",
+    "adult_income",
+    "pima",
+    "heart",
+    "credit"
+  ],
+  "methods": [
+    "madifft",
+    "privbayes_eps0.1",
+    "privbayes_eps0.2",
+    "privbayes_eps0.5",
+    "privbayes_eps1",
+    "privbayes_eps2",
+    "privbayes_eps5",
+    "privbayes_eps10"
+  ],
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "include_external_baselines": false,
+  "library_versions": {
+    "python": "3.11.9",
+    "numpy": "1.26.4",
+    "pandas": "2.3.3",
+    "scikit-learn": "1.7.2",
+    "torch": "2.5.1+cu121",
+    "sdv": "1.32.0",
+    "domias": "0.0.5",
+    "privacy_sdg_toolbox": null,
+    "dpart": "0.1.2"
+  }
+}

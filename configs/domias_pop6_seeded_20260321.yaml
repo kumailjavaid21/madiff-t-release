@@ -1,0 +1,58 @@
+output_root: outputs
+cache_root: outputs/DOMIAS_POP6_SEEDED_20260321
+cache_mode: write
+cache_format: csv
+
+datasets:
+- breast_cancer
+- adult_income
+- pima
+- heart
+- credit
+
+methods:
+- madifft
+
+seeds:
+- 0
+- 1
+- 2
+- 3
+- 4
+
+strong_audits:
+  enable_domias: true
+  enable_tapas: false
+  domias_nonmember_split: test
+
+method_params:
+  madifft:
+    params:
+      device: cuda
+      timesteps: 200
+      schedule: cosine
+      beta_scale: 0.9
+      dropout: 0.1
+      cont_scale: 1.0
+      batch_size: 128
+      epochs: 50
+      include_label: false
+    evolution:
+      population: 6
+      generations: 3
+      steps_per_gen: 5
+      elite_k: 3
+      mutation_rate: 0.4
+      w_utility: 1.0
+      w_privacy: 1.0
+      w_fidelity: 1.0
+      w_class_kl: 0.0
+
+compute_fair:
+  M: 6
+  G: 3
+  B: 5
+
+skip_tstr: true
+skip_privacy: true
+skip_strong_audits: false
