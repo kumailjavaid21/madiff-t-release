@@ -570,7 +570,7 @@ def main() -> None:
     fig_dir = (
         Path(args.fig_dir).resolve()
         if args.fig_dir
-        else root / "outputs" / "neurocomputing_final_bundle" / "informationscience_figures"
+        else root / "outputs" / "final_bundle" / "journal_figures"
     )
     fig_dir.mkdir(parents=True, exist_ok=True)
 
@@ -583,7 +583,7 @@ def main() -> None:
     build_ablation(fig_dir, root)
     build_evolution_curves(fig_dir, root)
 
-    print(f"Saved Information Sciences styled PDFs in: {fig_dir}")
+    print(f"Saved journal-style styled PDFs in: {fig_dir}")
     print(
         "Files: ablation_study_IS.pdf, comparative_utility_IS.pdf, fidelity_analysis_IS.pdf, "
         "evolution_curves_IS.pdf, mia_roc_curves_IS.pdf, privacy_audits_IS.pdf, tradeoff_scatter_IS.pdf"

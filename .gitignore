@@ -78,7 +78,7 @@ src/mas_generators/*
 
 # Keep only approved public configs
 configs/*
-!configs/neurocomputing.yaml
+!configs/main_eval.yaml
 !configs/pop6_seeded_20260321.yaml
 !configs/domias_pop6_seeded_20260321.yaml
 !configs/abl_orig_m6_seeded_20260322.yaml
@@ -88,7 +88,7 @@ configs/*
 # Keep only approved public scripts
 scripts/*
 !scripts/compute_real_tstr_upper_bound.py
-!scripts/build_information_sciences_style_figures.py
+!scripts/build_journal_style_figures.py
 !scripts/eval_tstr_tabsyn_stasy.py
 !scripts/merge_tstr_results.py
 !scripts/make_latex_tstr_table.py
@@ -105,17 +105,17 @@ baselines/stasy/*
 
 # Keep only final paper figures and LaTeX tables
 outputs/*
-!outputs/neurocomputing_final_bundle/
-outputs/neurocomputing_final_bundle/*
-!outputs/neurocomputing_final_bundle/informationscience_figures/
-!outputs/neurocomputing_final_bundle/latex_tables/
+!outputs/final_bundle/
+outputs/final_bundle/*
+!outputs/final_bundle/journal_figures/
+!outputs/final_bundle/latex_tables/
 
-outputs/neurocomputing_final_bundle/informationscience_figures/*
-!outputs/neurocomputing_final_bundle/informationscience_figures/*_IS.pdf
-!outputs/neurocomputing_final_bundle/informationscience_figures/*.csv
+outputs/final_bundle/journal_figures/*
+!outputs/final_bundle/journal_figures/*_IS.pdf
+!outputs/final_bundle/journal_figures/*.csv
 
-outputs/neurocomputing_final_bundle/latex_tables/*
-!outputs/neurocomputing_final_bundle/latex_tables/**
+outputs/final_bundle/latex_tables/*
+!outputs/final_bundle/latex_tables/**
 
 # Keep only compact root-level summaries
 results/*
