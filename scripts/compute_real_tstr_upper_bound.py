@@ -102,7 +102,7 @@ def _build_summary(raw_df: pd.DataFrame) -> pd.DataFrame:
 
 def main() -> None:
     parser = argparse.ArgumentParser(description="Compute real-data TSTR upper bound with the existing evaluation pipeline.")
-    parser.add_argument("--config", default="configs/neurocomputing.yaml")
+    parser.add_argument("--config", default="configs/main_eval.yaml")
     parser.add_argument("--output-raw", default="results/real_tstr_upper_bound_raw.csv")
     parser.add_argument("--output-summary", default="results/real_tstr_upper_bound_summary.csv")
     args = parser.parse_args()

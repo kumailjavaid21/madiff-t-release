@@ -8,7 +8,7 @@ MADiff-T is a multi-agent evolutionary tabular diffusion framework for utility-p
 - Current TabDDPM/MADiff backbone in `src/mas_generators/tabddpm/`
 - Current fitness and selection logic in `src/fitness.py` and `src/selection.py`
 - Final public configs in `configs/`
-- Final Information Sciences figures in `outputs/neurocomputing_final_bundle/informationscience_figures/`
+- Final journal-style figures in `outputs/final_bundle/journal_figures/`
 - Compact retained result tables in `paper_revC/results_revC/` and `results/`
 
 ## Main entry point
@@ -16,7 +16,7 @@ MADiff-T is a multi-agent evolutionary tabular diffusion framework for utility-p
 The main experiment entry point is:
 
 ```bash
-python -m paper_revC.run_all --config configs/neurocomputing.yaml --run-tag MYRUN --overwrite
+python -m paper_revC.run_all --config configs/main_eval.yaml --run-tag MYRUN --overwrite
 ```
 
 Install the paper pipeline dependencies with:
@@ -27,7 +27,7 @@ pip install -r paper_revC/requirements_revC.txt
 
 ## Key retained configs
 
-- `configs/neurocomputing.yaml` — default 5-dataset evaluation config
+- `configs/main_eval.yaml` — default 5-dataset evaluation config
 - `configs/pop6_seeded_20260321.yaml` — seeded M=6 run used for the final population study
 - `configs/domias_pop6_seeded_20260321.yaml` — DOMIAS rerun on the seeded M=6 outputs
 - `configs/abl_orig_m6_seeded_20260322.yaml` — base evolutionary calibration only
@@ -54,7 +54,7 @@ The repo keeps only compact paper-facing outputs, not full generated caches.
 Final paper figures are retained in:
 
 ```text
-outputs/neurocomputing_final_bundle/informationscience_figures/
+outputs/final_bundle/journal_figures/
 ```
 
 Retained assets are:
@@ -65,13 +65,13 @@ Retained assets are:
 LaTeX table artifacts are retained in:
 
 ```text
-outputs/neurocomputing_final_bundle/latex_tables/
+outputs/final_bundle/latex_tables/
 ```
 
 ## Supporting utility scripts
 
 - `scripts/compute_real_tstr_upper_bound.py` — real-data TSTR upper bound with the same evaluation protocol
-- `scripts/build_information_sciences_style_figures.py` — regenerate the retained journal-style figures
+- `scripts/build_journal_style_figures.py` — regenerate the retained journal-style figures
 - `scripts/eval_tstr_tabsyn_stasy.py` — evaluate external TabSyn/STaSy outputs with the paper protocol
 - `scripts/merge_tstr_results.py` — merge TSTR outputs into compact paper tables
 - `scripts/make_latex_tstr_table.py` — emit LaTeX-ready TSTR summary tables
@@ -95,7 +95,7 @@ src/selection.py                             Privacy-gate selection
 configs/                                     Retained public configs
 scripts/                                     Retained analysis / figure scripts
 baselines/                                   Thin baseline wrappers
-outputs/neurocomputing_final_bundle/         Final figures + LaTeX tables
+outputs/final_bundle/         Final figures + LaTeX tables
 paper_revC/results_revC/                     Compact retained run outputs
 results/                                     Compact retained summary CSVs
 ```
