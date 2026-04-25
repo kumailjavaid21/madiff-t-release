@@ -1,0 +1,27 @@
+\begin{table}[!t]
+\centering
+\caption{Privacy audits across all datasets. Higher DCR is safer;
+lower MIA AUC is safer (0.5 indicates chance under the chosen
+attacker). \textbf{Bold} indicates MADiff-T safer than TabDDPM.
+All rows come from a single unified run
+(\texttt{UNIFIED\_FINAL\_20260410}).}
+\label{tab:results_privacy_all}
+\scriptsize
+\setlength{\tabcolsep}{5.5pt}
+\renewcommand{\arraystretch}{1.15}
+\rowcolors{2}{gray!10}{white}
+\begin{tabular}{l|c c|c c}
+\rowcolor{gray!20}
+\textbf{Dataset} &
+\multicolumn{2}{c|}{\textbf{TabDDPM}} &
+\multicolumn{2}{c}{\textbf{MADiff-T (ours)}} \\
+\rowcolor{gray!20}
+& DCR $\uparrow$ & MIA AUC $\downarrow$ & DCR $\uparrow$ & MIA AUC $\downarrow$ \\
+\hline
+Breast Cancer & 9.09 & 0.473 & \textbf{11.06} & \textbf{0.451} \\
+PIMA & 0.49 & 0.557 & \textbf{0.53} & \textbf{0.544} \\
+Heart & 3.09 & 0.551 & \textbf{3.57} & \textbf{0.442} \\
+Credit & 0.73 & 0.569 & \textbf{1.93} & \textbf{0.482} \\
+Adult Income & 0.45 & 0.486 & \textbf{1.74} & 0.500 \\
+\end{tabular}
+\end{table}

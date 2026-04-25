@@ -1,0 +1,36 @@
+dataset,method,mean_acc_pct,std_acc_pct,method_display,dataset_display
+adult_income,ctgan,82.14483139856273,0.3718936029088804,CTGAN,Adult Income
+adult_income,gaussian_copula,78.55168601437258,0.0,GC,Adult Income
+adult_income,madifft,74.13377556661139,2.0922647142481097,MADiff-T,Adult Income
+adult_income,stasy,55.02968270214943,28.811935246976905,STaSy,Adult Income
+adult_income,tabddpm_single,72.05527915975678,2.147602115253171,TabDDPM,Adult Income
+adult_income,tabsyn,85.09314227226203,0.2701839255172376,TabSyn,Adult Income
+adult_income,tvae,80.25649530127141,1.2178338895396696,TVAE,Adult Income
+breast_cancer,ctgan,65.08771929824562,18.299515523375856,CTGAN,Breast Cancer
+breast_cancer,gaussian_copula,92.98245614035088,0.0,GC,Breast Cancer
+breast_cancer,madifft,65.08771929824562,4.8205725136961695,MADiff-T,Breast Cancer
+breast_cancer,stasy,31.57894736842105,9.84646680729985,STaSy,Breast Cancer
+breast_cancer,tabddpm_single,63.1578947368421,0.6202691063039864,TabDDPM,Breast Cancer
+breast_cancer,tabsyn,89.82456140350877,10.408699631011455,TabSyn,Breast Cancer
+breast_cancer,tvae,92.28070175438597,2.353755765789254,TVAE,Breast Cancer
+credit,ctgan,67.6,3.267261850540902,CTGAN,Credit
+credit,gaussian_copula,69.0,0.0,GC,Credit
+credit,madifft,61.999999999999986,12.394555256240537,MADiff-T,Credit
+credit,stasy,43.0,16.446884203398525,STaSy,Credit
+credit,tabddpm_single,68.0,2.5495097567963874,TabDDPM,Credit
+credit,tabsyn,72.8,1.923538406167134,TabSyn,Credit
+credit,tvae,70.19999999999999,2.4647515087732454,TVAE,Credit
+heart,ctgan,47.407407407407405,11.460554405011706,CTGAN,Heart
+heart,gaussian_copula,75.92592592592592,0.0,GC,Heart
+heart,madifft,53.333333333333336,16.635773838130152,MADiff-T,Heart
+heart,stasy,62.22222222222222,12.668615834434865,STaSy,Heart
+heart,tabddpm_single,41.11111111111111,9.015304773805989,TabDDPM,Heart
+heart,tabsyn,83.7037037037037,10.006856360078743,TabSyn,Heart
+heart,tvae,78.14814814814814,2.028602064833946,TVAE,Heart
+pima,ctgan,59.480519480519476,5.709118088398253,CTGAN,PIMA
+pima,gaussian_copula,70.77922077922078,0.0,GC,PIMA
+pima,madifft,64.02597402597404,3.298292233558522,MADiff-T,PIMA
+pima,stasy,35.06493506493506,0.918320495047465,STaSy,PIMA
+pima,tabddpm_single,62.72727272727272,4.628189527585837,TabDDPM,PIMA
+pima,tabsyn,74.54545454545455,9.916160607179783,TabSyn,PIMA
+pima,tvae,71.55844155844156,1.0669919951399358,TVAE,PIMA

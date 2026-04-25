@@ -1,0 +1,23 @@
+\begin{table}[!t]
+\centering
+\caption{MADiff-T DOMIAS membership-inference audit
+($M=6$, seeded; mean $\pm$ std over 5 seeds; members $D_{\text{train}}$,
+non-members $D_{\text{test}}$). Lower is safer; 0.5 indicates
+chance-level distinguishability. From a single unified run
+(\texttt{UNIFIED\_FINAL\_20260410}).}
+\label{tab:results_domias}
+\scriptsize
+\setlength{\tabcolsep}{5.5pt}
+\renewcommand{\arraystretch}{1.15}
+\rowcolors{2}{gray!10}{white}
+\begin{tabular}{l|c}
+\rowcolor{gray!20}
+\textbf{Dataset} & \textbf{MADiff-T DOMIAS AUC $\downarrow$} \\
+\hline
+Adult Income & 0.498 $\pm$ 0.002 \\
+Breast Cancer & 0.448 $\pm$ 0.030 \\
+German Credit & 0.476 $\pm$ 0.047 \\
+Heart Disease & 0.487 $\pm$ 0.043 \\
+PIMA Diabetes & 0.557 $\pm$ 0.017 \\
+\end{tabular}
+\end{table}

@@ -1,0 +1,42 @@
+\begin{table}[!t]
+\centering
+\caption{TSTR utility (Accuracy \%, mean $\pm$ std over 5 seeds)
+across all datasets. Higher is better. \textbf{Bold} indicates
+MADiff-T outperforms the TabDDPM single-agent baseline. Real data
+upper bound rows (bottom, shaded) show classifier performance
+trained directly on real data, providing context for the
+synthetic-to-real utility gap. All non-external-baseline columns
+come from a single unified run (\texttt{UNIFIED\_FINAL\_20260410}).}
+\label{tab:results_utility_all}
+\scriptsize
+\setlength{\tabcolsep}{2.2pt}
+\renewcommand{\arraystretch}{1.12}
+
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{lccccccc}
+\toprule
+\rowcolor{gray!20}
+\textbf{Dataset} & \textbf{GC} & \textbf{TVAE} & \textbf{CTGAN} & \textbf{TabDDPM} & \textbf{TabSyn} & \textbf{STaSy} & \textbf{MADiff-T} \\
+\midrule
+Breast Cancer & 92.98 $\pm$ 0.00 & 92.28 $\pm$ 2.35 & 65.09 $\pm$ 18.30 & 63.16 $\pm$ 0.62 & 89.82 $\pm$ 10.41 & 31.58 $\pm$ 9.85 & \textbf{65.09 $\pm$ 4.82} \\
+PIMA & 70.78 $\pm$ 0.00 & 71.56 $\pm$ 1.07 & 59.48 $\pm$ 5.71 & 62.73 $\pm$ 4.63 & 74.55 $\pm$ 9.92 & 35.06 $\pm$ 0.92 & \textbf{64.03 $\pm$ 3.30} \\
+Heart & 75.93 $\pm$ 0.00 & 78.15 $\pm$ 2.03 & 47.41 $\pm$ 11.46 & 41.11 $\pm$ 9.02 & 83.70 $\pm$ 10.01 & 62.22 $\pm$ 12.67 & \textbf{53.33 $\pm$ 16.64} \\
+Credit & 69.00 $\pm$ 0.00 & 70.20 $\pm$ 2.46 & 67.60 $\pm$ 3.27 & 68.00 $\pm$ 2.55 & 72.80 $\pm$ 1.92 & 43.00 $\pm$ 16.45 & 62.00 $\pm$ 12.39 \\
+Adult Income & 78.55 $\pm$ 0.00 & 80.26 $\pm$ 1.22 & 82.14 $\pm$ 0.37 & 72.06 $\pm$ 2.15 & 85.09 $\pm$ 0.27 & 55.03 $\pm$ 28.81 & \textbf{74.13 $\pm$ 2.09} \\
+\midrule
+\rowcolor{gray!5}
+\multicolumn{8}{l}{\scriptsize\textit{Real data upper bound (classifier trained on real $D_{\text{train}}$, evaluated on real $D_{\text{test}}$; no synthesis)}} \\
+\rowcolor{gray!5}
+Breast Cancer & \multicolumn{6}{c}{---} & 98.25 $\pm$ 0.62 \\
+\rowcolor{gray!5}
+PIMA & \multicolumn{6}{c}{---} & 75.58 $\pm$ 2.50 \\
+\rowcolor{gray!5}
+Heart & \multicolumn{6}{c}{---} & 82.59 $\pm$ 6.23 \\
+\rowcolor{gray!5}
+Credit & \multicolumn{6}{c}{---} & 76.80 $\pm$ 4.87 \\
+\rowcolor{gray!5}
+Adult Income & \multicolumn{6}{c}{---} & 84.93 $\pm$ 0.32 \\
+\bottomrule
+\end{tabular}%
+}
+\end{table}

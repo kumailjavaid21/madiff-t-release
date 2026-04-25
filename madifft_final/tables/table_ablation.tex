@@ -1,0 +1,25 @@
+\begin{table}[!t]
+\centering
+\caption{Ablation: TSTR accuracy (\%, mean $\pm$ std over 5 seeds,
+$M=6$ seeded) as enhancements are added. Original = base evolutionary
+calibration only (no FA Loss, no PFS); +FA Loss = Feature-Aggregated
+Loss added; +FA Loss+PFS = full MADiff-T. Since Final equals +FA Loss
+on all datasets where PFS is disabled, those rows are marked
+$\dagger$. PFS is active only for PIMA ($n_{\text{train}} \geq 520$,
+categorical ratio $< 0.5$).}
+\label{tab:ablation_steps}
+\scriptsize
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.15}
+\rowcolors{2}{gray!10}{white}
+\begin{tabular}{l|c|c|c}
+\rowcolor{gray!20}
+\textbf{Dataset} & \textbf{Original} & \textbf{+FA Loss} & \textbf{+FA Loss+PFS (Final)} \\
+\hline
+Breast Cancer$^\dagger$ & 57.54 $\pm$ 13.54 & 65.09 $\pm$ 4.82 & 65.09 $\pm$ 4.82 \\
+Adult Income$^\dagger$ & 75.23 $\pm$ 0.31 & 74.13 $\pm$ 2.09 & 74.13 $\pm$ 2.09 \\
+PIMA & 63.51 $\pm$ 6.56 & 64.94 $\pm$ 1.89 & 64.03 $\pm$ 3.30 \\
+Heart$^\dagger$ & 48.52 $\pm$ 10.67 & 53.33 $\pm$ 16.64 & 53.33 $\pm$ 16.64 \\
+Credit$^\dagger$ & 55.90 $\pm$ 17.29 & 62.00 $\pm$ 12.39 & 62.00 $\pm$ 12.39 \\
+\end{tabular}
+\end{table}

@@ -1,0 +1,36 @@
+{
+  "run_tag": "UNIFIED_FINAL_20260410",
+  "datasets": [
+    "breast_cancer",
+    "adult_income",
+    "pima",
+    "heart",
+    "credit"
+  ],
+  "methods": [
+    "gaussian_copula",
+    "tvae",
+    "ctgan",
+    "tabddpm_single",
+    "madifft"
+  ],
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "include_external_baselines": false,
+  "library_versions": {
+    "python": "3.11.9",
+    "numpy": "1.26.4",
+    "pandas": "2.3.3",
+    "scikit-learn": "1.7.2",
+    "torch": "2.5.1+cu121",
+    "sdv": "1.31.0",
+    "domias": "0.0.5",
+    "privacy_sdg_toolbox": null,
+    "dpart": null
+  }
+}
