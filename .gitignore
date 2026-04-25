@@ -1,26 +1,15 @@
+# MADiff-T public release — minimal allowlist gitignore.
+# Repo is structured as a single deliverable under madifft_final/.
+# Everything at the root level is excluded except the items below.
+
 /*
 !/.gitignore
 !/README.md
 !/CITATION.cff
 !/requirements.txt
-!/paper_revC/
-!/src/
-!/configs/
-!/scripts/
-!/baselines/
-!/outputs/
-!/results/
 !/madifft_final/
-!/privacy_attacks/
-!/data/
 
-# Explicitly excluded (also covered by root /* deny but listed for clarity):
-#   Sal_smart/, physics_ab/, rag_intervention_audit/
-#   data_exports/, tmp_*/, notebooks/, "relevant papers/", "New folder*/"
-#   experiments/, paper_outputs/, generated_tables/, release_bundle/
-#   outputs_ml/, dp_runs.json, FINAL_WORK_SUMMARY.md, etc.
-
-# Global junk / environments / caches
+# Global junk / environments / caches (recursive)
 **/__pycache__/
 **/*.py[cod]
 **/.pytest_cache/
@@ -41,122 +30,3 @@ Thumbs.db
 .venv/
 venv/
 env/
-
-# Keep all paper_revC source, but only the approved compact results
-paper_revC/external/
-paper_revC/results_revC/*
-!paper_revC/results_revC/POP6_SEEDED_20260321/
-!paper_revC/results_revC/DOMIAS_POP6_SEEDED_20260321/
-!paper_revC/results_revC/ABL_ORIG_M6_SEEDED_20260322/
-!paper_revC/results_revC/ABL_FALOSS_M6_SEEDED_20260322/
-!paper_revC/results_revC/ABL_FINAL_M6_SEEDED_20260322/
-!paper_revC/results_revC/UNIFIED_FINAL_20260410/
-
-paper_revC/results_revC/POP6_SEEDED_20260321/*
-!paper_revC/results_revC/POP6_SEEDED_20260321/run_manifest.json
-!paper_revC/results_revC/POP6_SEEDED_20260321/tables/
-!paper_revC/results_revC/POP6_SEEDED_20260321/tables/**
-
-paper_revC/results_revC/DOMIAS_POP6_SEEDED_20260321/*
-!paper_revC/results_revC/DOMIAS_POP6_SEEDED_20260321/tables/
-paper_revC/results_revC/DOMIAS_POP6_SEEDED_20260321/tables/*
-!paper_revC/results_revC/DOMIAS_POP6_SEEDED_20260321/tables/privacy_strong_audits_raw.csv
-
-paper_revC/results_revC/ABL_ORIG_M6_SEEDED_20260322/*
-!paper_revC/results_revC/ABL_ORIG_M6_SEEDED_20260322/tables/
-paper_revC/results_revC/ABL_ORIG_M6_SEEDED_20260322/tables/*
-!paper_revC/results_revC/ABL_ORIG_M6_SEEDED_20260322/tables/tstr_results_raw.csv
-
-paper_revC/results_revC/ABL_FALOSS_M6_SEEDED_20260322/*
-!paper_revC/results_revC/ABL_FALOSS_M6_SEEDED_20260322/tables/
-paper_revC/results_revC/ABL_FALOSS_M6_SEEDED_20260322/tables/*
-!paper_revC/results_revC/ABL_FALOSS_M6_SEEDED_20260322/tables/tstr_results_raw.csv
-
-paper_revC/results_revC/ABL_FINAL_M6_SEEDED_20260322/*
-!paper_revC/results_revC/ABL_FINAL_M6_SEEDED_20260322/tables/
-paper_revC/results_revC/ABL_FINAL_M6_SEEDED_20260322/tables/*
-!paper_revC/results_revC/ABL_FINAL_M6_SEEDED_20260322/tables/tstr_results_raw.csv
-
-# Final unified run — keep manifest + tables only (figures dir is empty / regenerated)
-paper_revC/results_revC/UNIFIED_FINAL_20260410/*
-!paper_revC/results_revC/UNIFIED_FINAL_20260410/run_manifest.json
-!paper_revC/results_revC/UNIFIED_FINAL_20260410/feature_schema.json
-!paper_revC/results_revC/UNIFIED_FINAL_20260410/tables/
-!paper_revC/results_revC/UNIFIED_FINAL_20260410/tables/**
-
-# Keep only the current MADiff source slice under src/
-src/*
-!src/fitness.py
-!src/selection.py
-!src/mas_generators/
-src/mas_generators/*
-!src/mas_generators/__init__.py
-!src/mas_generators/tabddpm/
-!src/mas_generators/tabddpm/**
-src/mas_generators/tabddpm/__pycache__/
-src/**/__pycache__/
-
-# Keep only approved public configs
-configs/*
-!configs/main_eval.yaml
-!configs/pop6_seeded_20260321.yaml
-!configs/domias_pop6_seeded_20260321.yaml
-!configs/abl_orig_m6_seeded_20260322.yaml
-!configs/abl_faloss_m6_seeded_20260322.yaml
-!configs/abl_final_m6_seeded_20260322.yaml
-!configs/unified_final_20260410.yaml
-
-# Keep only approved public scripts
-scripts/*
-!scripts/compute_real_tstr_upper_bound.py
-!scripts/build_journal_style_figures.py
-!scripts/eval_tstr_tabsyn_stasy.py
-!scripts/merge_tstr_results.py
-!scripts/make_latex_tstr_table.py
-
-# Keep only the thin baseline wrappers and shared helper
-baselines/*
-!baselines/common.py
-!baselines/tabsyn/
-!baselines/stasy/
-baselines/tabsyn/*
-!baselines/tabsyn/run_tabsyn.py
-baselines/stasy/*
-!baselines/stasy/run_stasy.py
-
-# Keep only final paper figures and LaTeX tables
-outputs/*
-!outputs/final_bundle/
-outputs/final_bundle/*
-!outputs/final_bundle/journal_figures/
-!outputs/final_bundle/latex_tables/
-
-outputs/final_bundle/journal_figures/*
-!outputs/final_bundle/journal_figures/*_IS.pdf
-!outputs/final_bundle/journal_figures/*.csv
-
-outputs/final_bundle/latex_tables/*
-!outputs/final_bundle/latex_tables/**
-
-# Keep only compact root-level summaries
-results/*
-!results/real_tstr_upper_bound_summary.csv
-!results/tstr_results_with_tabsyn_stasy.csv
-!results/tstr_summary_for_paper.csv
-
-# ── madifft_final/ — clean deliverable bundle (code + data + figures + tables + tex) ──
-madifft_final/**/__pycache__/
-madifft_final/**/*.py[cod]
-madifft_final/**/.DS_Store
-
-# ── privacy_attacks/ — DOMIAS / shadow-MIA wrappers ──
-privacy_attacks/**/__pycache__/
-privacy_attacks/**/*.py[cod]
-
-# ── data/ — keep only the small raw datasets (drop exports, splits, caches) ──
-data/*
-!data/raw/
-data/raw/**/.DS_Store
-data/raw/**/.Rhistory
-data/raw/**/__MACOSX/
-data/raw/**/._*

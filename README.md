@@ -1,107 +1,49 @@
 # MADiff-T
 
-MADiff-T is a multi-agent evolutionary tabular diffusion framework for utility-privacy tradeoff optimization on tabular data. This public repository is trimmed for a journal-ready code release: core code, final public configs, final paper figures, and compact result tables are retained; bulky caches, logs, synthetic outputs, and old experimental artifacts are excluded.
+**MADiff-T** is a multi-agent evolutionary tabular diffusion framework for joint
+utility-privacy trade-off optimization on tabular data.
 
-## What is in this public repo
+This repository accompanies the paper submission and is structured as a single
+self-contained deliverable under [`madifft_final/`](madifft_final/).
 
-- Current execution pipeline in `paper_revC/`
-- Current TabDDPM/MADiff backbone in `src/mas_generators/tabddpm/`
-- Current fitness and selection logic in `src/fitness.py` and `src/selection.py`
-- Final public configs in `configs/`
-- Final journal-style figures in `outputs/final_bundle/journal_figures/`
-- Compact retained result tables in `paper_revC/results_revC/` and `results/`
+## Repository contents
 
-## Main entry point
+```text
+madifft_final/
+├── README.md                        # snapshot manifest & provenance
+├── cas-sc-template-v2.tex           # paper LaTeX source (latest revision)
+├── code/
+│   ├── src/                         # MADiff-T training implementation
+│   │   ├── fitness.py               # composite utility / privacy / fidelity fitness
+│   │   ├── selection.py             # privacy-gated selection
+│   │   └── mas_generators/tabddpm/  # tabular diffusion backbone
+│   ├── build_all_figures_and_tables.py   # rebuild all figures + LaTeX tables
+│   ├── build_journal_figures.py          # journal-style PDF figures
+│   ├── extract_mia_roc_data.py           # per-sample MIA scores → ROC curves
+│   ├── step4_before_after.py             # snapshot-vs-old comparison
+│   └── verify_v2.py                      # regenerate-and-verify check
+├── data/                            # frozen authoritative CSVs (TSTR, privacy, ablation, ...)
+├── figures/                         # final PDF + PNG figures used in the paper
+└── tables/                          # final LaTeX tables (table_tstr, table_privacy, ...)
+```
 
-The main experiment entry point is:
+The full file listing, source provenance for every CSV, known caveats, and
+paper-text update notes are documented in [`madifft_final/README.md`](madifft_final/README.md).
+
+## Reproducing the paper figures and tables
+
+All figures and LaTeX tables can be regenerated from the frozen CSVs in
+[`madifft_final/data/`](madifft_final/data/):
 
 ```bash
-python -m paper_revC.run_all --config configs/main_eval.yaml --run-tag MYRUN --overwrite
+pip install -r requirements.txt
+python madifft_final/code/build_all_figures_and_tables.py
 ```
 
-Install the paper pipeline dependencies with:
+This reads only `madifft_final/data/`, writes
+`madifft_final/figures/*.csv` + PDFs and `madifft_final/tables/*.tex`, and
+prints a head of every regenerated file.
 
-```bash
-pip install -r paper_revC/requirements_revC.txt
-```
+## Citation
 
-## Key retained configs
-
-- `configs/main_eval.yaml` — default 5-dataset evaluation config
-- `configs/pop6_seeded_20260321.yaml` — seeded M=6 run used for the final population study
-- `configs/domias_pop6_seeded_20260321.yaml` — DOMIAS rerun on the seeded M=6 outputs
-- `configs/abl_orig_m6_seeded_20260322.yaml` — base evolutionary calibration only
-- `configs/abl_faloss_m6_seeded_20260322.yaml` — FA Loss only
-- `configs/abl_final_m6_seeded_20260322.yaml` — FA Loss + adaptive PFS
-
-## Retained compact results
-
-The repo keeps only compact paper-facing outputs, not full generated caches.
-
-- `paper_revC/results_revC/POP6_SEEDED_20260321/`
-  - `run_manifest.json`
-  - `tables/`
-- `paper_revC/results_revC/DOMIAS_POP6_SEEDED_20260321/tables/privacy_strong_audits_raw.csv`
-- `paper_revC/results_revC/ABL_ORIG_M6_SEEDED_20260322/tables/tstr_results_raw.csv`
-- `paper_revC/results_revC/ABL_FALOSS_M6_SEEDED_20260322/tables/tstr_results_raw.csv`
-- `paper_revC/results_revC/ABL_FINAL_M6_SEEDED_20260322/tables/tstr_results_raw.csv`
-- `results/real_tstr_upper_bound_summary.csv`
-- `results/tstr_results_with_tabsyn_stasy.csv`
-- `results/tstr_summary_for_paper.csv`
-
-## Final figures
-
-Final paper figures are retained in:
-
-```text
-outputs/final_bundle/journal_figures/
-```
-
-Retained assets are:
-
-- final Elsevier-style PDFs: `*_IS.pdf`
-- figure source summaries: `*.csv`
-
-LaTeX table artifacts are retained in:
-
-```text
-outputs/final_bundle/latex_tables/
-```
-
-## Supporting utility scripts
-
-- `scripts/compute_real_tstr_upper_bound.py` — real-data TSTR upper bound with the same evaluation protocol
-- `scripts/build_journal_style_figures.py` — regenerate the retained journal-style figures
-- `scripts/eval_tstr_tabsyn_stasy.py` — evaluate external TabSyn/STaSy outputs with the paper protocol
-- `scripts/merge_tstr_results.py` — merge TSTR outputs into compact paper tables
-- `scripts/make_latex_tstr_table.py` — emit LaTeX-ready TSTR summary tables
-
-## External baselines
-
-Thin wrappers are retained for TabSyn and STaSy:
-
-- `baselines/tabsyn/run_tabsyn.py`
-- `baselines/stasy/run_stasy.py`
-
-These wrappers are integration helpers. Full third-party baseline repositories and large pretrained artifacts are not bundled in this public cleanup.
-
-## Repository layout
-
-```text
-paper_revC/                                  Current experiment harness
-src/mas_generators/tabddpm/                  Current diffusion backbone
-src/fitness.py                               Composite fitness
-src/selection.py                             Privacy-gate selection
-configs/                                     Retained public configs
-scripts/                                     Retained analysis / figure scripts
-baselines/                                   Thin baseline wrappers
-outputs/final_bundle/         Final figures + LaTeX tables
-paper_revC/results_revC/                     Compact retained run outputs
-results/                                     Compact retained summary CSVs
-```
-
-## Notes
-
-- Deterministic seeding is enabled in the retained MADiff-T code path.
-- The public repo keeps code and compact final artifacts; it does not keep raw synthetic caches, large logs, local environments, or temporary experiment folders.
-- Some retained configs reference prior cache roots from local experimentation. For a fresh rerun, update those cache paths or regenerate outputs from scratch.
+See [`CITATION.cff`](CITATION.cff).
